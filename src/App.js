@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import React, { useState } from "react";
+import Search from "./components/searchbar";
 
-function App() {
+export default function App() {
+  const [query, setQuery] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search Here..."
+          className="search-box"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+
+      {/* {console.log(query)} */}
+      <div>
+        <Search query={query} />
+      </div>
     </div>
   );
 }
-
-export default App;
